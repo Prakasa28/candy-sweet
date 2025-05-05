@@ -1,0 +1,32 @@
+.top-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 1.5rem;
+  z-index: 1000;
+  padding: 1rem;
+  background: linear-gradient(
+        180deg,
+        #fdb263 0%,
+        #ffa64e 19.72%,
+        #ff9e4e 35.1%,
+        #ff8d4c 69.72%,
+        #ff7148 100%
+      )
+      padding-box,
+    linear-gradient(180deg, #ffb768, #ff6b44) border-box;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  border-radius: 20px 0 0 20px;
+}
+
+.menu-icon {
+  width: 30px;
+  height: auto;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
