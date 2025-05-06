@@ -10,7 +10,7 @@ const IntroStep = ({ onPlay }) => {
   return (
     <div className={styles.introStep}>
       <div className={styles.splitContainer}>
-        {/* Left Section */}
+        {/* Left Pane */}
         <div className={styles.leftPane}>
           <img src={Title} alt="Candy Sweet Title" className={styles.Title} />
           <div className={styles.overlayContent}>
@@ -62,7 +62,7 @@ const IntroStep = ({ onPlay }) => {
           </div>
         </div>
 
-        {/* Desktop Right Section */}
+        {/* Desktop Right Pane */}
         <div className={styles.rightPane}>
           <div className={styles.desktopStarsAndImage}>
             <div className={styles.starRow}>
