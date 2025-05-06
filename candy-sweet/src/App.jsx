@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Menu from "./components/Menu";
 import IntroStep from "./components/IntroStep";
 import StepWrapper from "./components/StepWrapper";
@@ -7,20 +7,21 @@ import RegistrationStep from "./components/RegistrationStep";
 import ValidationStep from "./components/ValidationStep";
 import ThankYouStep from "./components/ThankyouStep";
 import useApi from "./hooks/useApi";
+import "./App.css";
 
 const App = () => {
   const [phone, setPhone] = useState("");
   const [userId, setUserId] = useState("");
   const [pin, setPin] = useState("");
-  const [step, setStep] = useState("intro-page");
   const { triggerPin, verifyPin, error, loading } = useApi();
+  const navigate = useNavigate();
 
   const handleTriggerPin = async () => {
     try {
       const receivedPin = await triggerPin(phone, userId);
       alert("Your PIN is: " + receivedPin);
       setPin(receivedPin);
-      setStep("enter-pin");
+      navigate("/validation");
     } catch (err) {
       alert(err);
     }
@@ -30,7 +31,7 @@ const App = () => {
     try {
       const success = await verifyPin(pin, userId);
       if (success) {
-        setStep("thank-you");
+        navigate("/thank-you");
       }
     } catch (err) {
       alert(err);
@@ -41,32 +42,52 @@ const App = () => {
     <div className="overlay">
       <div style={{ position: "relative", zIndex: 1 }}>
         <Menu />
-        <StepWrapper visible={step === "intro-page"}>
-          <IntroStep onPlay={() => setStep("enter-phone")} />
-        </StepWrapper>
 
-        <StepWrapper visible={step === "enter-phone"}>
-          <RegistrationStep
-            phone={phone}
-            setPhone={setPhone}
-            userId={userId}
-            setUserId={setUserId}
-            onSubmit={handleTriggerPin}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <StepWrapper visible={true}>
+                <IntroStep onPlay={() => navigate("/registration")} />
+              </StepWrapper>
+            }
           />
-        </StepWrapper>
-
-        <StepWrapper visible={step === "enter-pin"}>
-          <ValidationStep
-            pin={pin}
-            setPin={setPin}
-            onVerify={handleVerifyPin}
-            clearError={() => {}}
+          <Route
+            path="/registration"
+            element={
+              <StepWrapper visible={true}>
+                <RegistrationStep
+                  phone={phone}
+                  setPhone={setPhone}
+                  userId={userId}
+                  setUserId={setUserId}
+                  onSubmit={handleTriggerPin}
+                />
+              </StepWrapper>
+            }
           />
-        </StepWrapper>
-
-        <StepWrapper visible={step === "thank-you"}>
-          <ThankYouStep />
-        </StepWrapper>
+          <Route
+            path="/validation"
+            element={
+              <StepWrapper visible={true}>
+                <ValidationStep
+                  pin={pin}
+                  setPin={setPin}
+                  onVerify={handleVerifyPin}
+                  clearError={() => {}}
+                />
+              </StepWrapper>
+            }
+          />
+          <Route
+            path="/thank-you"
+            element={
+              <StepWrapper visible={true}>
+                <ThankYouStep />
+              </StepWrapper>
+            }
+          />
+        </Routes>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
         {loading && <p>Loading...</p>}

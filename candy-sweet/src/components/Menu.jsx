@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import HomeIcon from "../assets/Home_icon.svg";
 import NewsIcon from "../assets/News_icon.svg";
 import StoreIcon from "../assets/Store_icon.svg";
@@ -8,8 +9,14 @@ import styles from "../styles/menu.module.css";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const goTo = (path) => {
+    navigate(path);
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -26,15 +33,18 @@ const Menu = () => {
         <button className={styles.closeButton} onClick={toggleMenu}>
           <img src={CloseIcon} alt="Close menu" className={styles.closeIcon} />
         </button>
-        <div className={styles.menuItem}>
+
+        <div className={styles.menuItem} onClick={() => goTo("/")}>
           <img src={HomeIcon} alt="Home" className={styles.menuIcon} />
           <span className={styles.menuLabel}>Home</span>
         </div>
-        <div className={styles.menuItem}>
+
+        <div className={styles.menuItem} onClick={() => goTo("/")}>
           <img src={NewsIcon} alt="News" className={styles.menuIcon} />
           <span className={styles.menuLabel}>News</span>
         </div>
-        <div className={styles.menuItem}>
+
+        <div className={styles.menuItem} onClick={() => goTo("/")}>
           <img src={StoreIcon} alt="Store" className={styles.menuIcon} />
           <span className={styles.menuLabel}>Store</span>
         </div>
