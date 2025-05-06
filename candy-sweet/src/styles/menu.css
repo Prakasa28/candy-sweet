@@ -1,8 +1,9 @@
 .top-menu {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 1rem;
+  right: -250px;
   display: flex;
+  align-items: center;
   gap: 1.5rem;
   z-index: 1000;
   padding: 1rem;
@@ -17,16 +18,59 @@
       padding-box,
     linear-gradient(180deg, #ffb768, #ff6b44) border-box;
   filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
-  transition: transform 0.2s ease;
-  cursor: pointer;
   border-radius: 20px 0 0 20px;
+  transition: right 0.3s ease;
+}
+
+.top-menu.open {
+  right: 0;
 }
 
 .menu-icon {
   width: 30px;
   height: auto;
+  transition: transform 0.2s;
 }
 
 .menu-icon:hover {
   transform: scale(1.1);
+}
+
+.hamburger-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1100;
+  background: rgba(255, 158, 78, 0.8); /* Semi-transparent */
+  border: none;
+  padding: 0.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.9;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.9;
 }

@@ -38,13 +38,16 @@ const ValidationStep = ({ pin, setPin, onVerify, clearError }) => {
           <input
             type="text"
             placeholder="4 - DIGIT PIN"
-            maxLength={20}
+            maxLength={4}
             value={pin}
             onChange={(e) => {
-              setPin(e.target.value);
+              const value = e.target.value.replace(/\D/g, "");
+              setPin(value);
               clearError();
             }}
             className={styles.customInput}
+            inputMode="numeric"
+            pattern="\d*"
           />
         </div>
 
