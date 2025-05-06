@@ -1,13 +1,13 @@
 import React from "react";
 import Title from "../assets/Title.svg";
 import Star from "../assets/Star.svg";
-import LevelImage from "../assets/Level_image.svg"; // Mobile image
-import GameImage from "../assets/Game_image.svg"; // Desktop image
-import styles from "../styles/registrationStep.module.css";
+import LevelImage from "../assets/Level_image.svg";
+import GameImage from "../assets/Game_image.svg";
+import styles from "../styles/sharedComponents.module.css";
 
 const ValidationStep = ({ pin, setPin, onVerify, clearError }) => {
   return (
-    <div className={styles.registrationStep}>
+    <div className={styles.validationStep}>
       <div className={styles.splitContainer}>
         {/* Left Pane (Mobile Content) */}
         <div className={styles.leftPane}>

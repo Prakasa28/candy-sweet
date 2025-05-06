@@ -1,4 +1,10 @@
-.registrationStep {
+@import "./variables.css";
+
+/* ---------------- Shared Base Styles ---------------- */
+.introStep,
+.registrationStep,
+.validationStep,
+.thankyouStep {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +14,8 @@
   height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
 }
 
 .splitContainer {
@@ -20,15 +28,7 @@
   justify-content: center;
 }
 
-.leftPane {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-}
-
+.leftPane,
 .rightPane {
   display: flex;
   flex-direction: column;
@@ -38,6 +38,7 @@
   justify-content: center;
 }
 
+.Title,
 .title {
   width: 80%;
   max-width: 300px;
@@ -48,22 +49,23 @@
 .overlayContent {
   text-align: center;
   padding: 1.5rem 1rem;
-  color: #fff;
-  font-family: "Permanent Marker", cursive;
-  font-size: 1.2rem;
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
   width: 90%;
   max-width: 350px;
-  background-color: rgba(255, 183, 104, 0.88);
+  background-color: var(--color-overlay-bg);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1.5rem;
+  border-radius: var(--border-radius-md);
   margin-bottom: 1rem;
   flex-direction: column;
   position: relative;
 }
 
-.gameIcon {
+.gameIcon,
+.desktopGameIcon {
   width: 60vw;
   max-width: 220px;
   height: auto;
@@ -71,11 +73,8 @@
 }
 
 .desktopGameIcon {
-  display: none; /* Hide the desktop image by default */
-  width: 60vw;
+  display: none;
   max-width: 380px;
-  height: auto;
-  margin-top: 0.75rem;
   margin-bottom: 50px;
 }
 
@@ -84,8 +83,14 @@
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.75rem;
   flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.star {
+  filter: drop-shadow(var(--shadow-gold-sm));
+  animation: twinkle 1.5s infinite ease-in-out;
+  transition: transform var(--transition-speed);
 }
 
 .star.small {
@@ -96,25 +101,7 @@
 .star.large {
   width: 75px;
   height: 75px;
-  filter: drop-shadow(0 0 12px gold);
-}
-
-.successMessage {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-.heartContainer {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-}
-
-.beatingHeart {
-  width: 80px;
-  height: 80px;
-  animation: twinkle 1.5s infinite ease-in-out;
+  filter: drop-shadow(var(--shadow-gold-lg));
 }
 
 @keyframes twinkle {
@@ -129,39 +116,49 @@
   }
 }
 
-.star {
-  filter: drop-shadow(0 0 6px gold);
-  animation: twinkle 1.5s infinite ease-in-out;
-  transition: transform 0.3s ease;
-}
-
+.playButton,
 .submitButton {
+  position: relative;
   width: 80%;
   max-width: 210px;
   height: 50px;
   font-weight: bold;
-  color: #fff;
+  color: var(--color-white);
   border: 2px solid transparent;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  font-family: "Permanent Marker", cursive;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-lg);
+  font-family: var(--font-primary);
   cursor: pointer;
-  background: linear-gradient(
-        180deg,
-        #fdb263 0%,
-        #ffa64e 19.72%,
-        #ff9e4e 35.1%,
-        #ff8d4c 69.72%,
-        #ff7148 100%
-      )
-      padding-box,
-    linear-gradient(180deg, #ffb768, #ff6b44) border-box;
-  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
-  transition: transform 0.2s ease;
+  background: var(--btn-gradient-bg) padding-box,
+    var(--btn-gradient-border) border-box;
+  filter: drop-shadow(var(--shadow-btn));
+  transition: transform var(--transition-speed);
   box-sizing: border-box;
 }
 
+.playButton:hover,
 .submitButton:hover {
+  transform: scale(1.05);
+}
+
+.downloadButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.downloadIcon {
+  width: 30vw;
+  max-width: 120px;
+  height: auto;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+}
+
+.downloadIcon:hover {
   transform: scale(1.05);
 }
 
@@ -172,42 +169,49 @@
 
 .inputField input {
   width: 80%;
-  border-radius: 30px;
-  border: 3px solid #ff7148;
-  background: #fff;
+  border-radius: var(--border-radius-sm);
+  border: 3px solid var(--color-orange-main);
+  background: var(--color-white);
   padding: 0.75rem;
-  font-family: "Permanent Marker", cursive;
+  font-family: var(--font-primary);
   font-size: 15px;
   font-weight: 400;
-  color: #ffa944;
-  box-sizing: border-box;
+  color: var(--color-orange-accent);
   margin-bottom: 1rem;
   text-align: center;
 }
 
 .inputField input::placeholder {
-  color: #ffa944;
-  font-family: "Permanent Marker", cursive;
+  color: var(--color-orange-accent);
+  font-family: var(--font-primary);
   font-size: 15px;
 }
 
 .inputField input:focus {
   outline: none;
-  border-color: #ff6b44;
+  border-color: var(--color-orange-dark);
 }
 
-/* ---------- Responsive Layout for Mobile ---------- */
-@media screen and (max-width: 1023px) {
+.successMessage {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.heartContainer {
+  margin: 0.2rem 0;
+}
+
+.beatingHeart {
+  width: 80px;
+  height: 80px;
+  animation: twinkle 1.5s infinite ease-in-out;
+}
+
+/* -------------- Mobile Layout -------------- */
+@media screen and (max-width: 1025px) {
   .splitContainer {
     flex-direction: column;
-    align-items: center;
-  }
-
-  .leftPane {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
 
@@ -215,20 +219,28 @@
     display: none;
   }
 
+  .leftPane .gameIcon,
+  .leftPane .starRow {
+    display: flex;
+  }
+
+  .rightPane .desktopGameIcon,
+  .rightPane .starRow {
+    display: none;
+  }
+
+  .Title,
   .title {
-    width: 80%;
     max-width: 280px;
   }
 
   .overlayContent {
-    font-size: 0.95rem;
+    font-size: var(--font-size-sm);
     padding: 1.25rem;
-    width: 90%;
     max-width: 300px;
   }
 
   .gameIcon {
-    width: 70vw;
     max-width: 180px;
     margin-top: 1rem;
   }
@@ -243,10 +255,11 @@
     height: 65px;
   }
 
+  .playButton,
   .submitButton {
     max-width: 200px;
     height: 48px;
-    font-size: 1.05rem;
+    font-size: var(--font-size-md);
   }
 
   .beatingHeart {
@@ -254,35 +267,29 @@
     height: 70px;
   }
 
-  /* Hide right image and star in mobile */
-  .rightPane .desktopGameIcon,
-  .rightPane .starRow {
-    display: none;
+  .downloadIcon {
+    width: 80px;
   }
 
-  /* Show left image and star in mobile */
-  .leftPane .gameIcon,
-  .leftPane .starRow {
-    display: flex;
+  .downloadButtons {
+    gap: 0.75rem;
   }
 }
 
-/* ---------- Responsive Layout for Small Screens (up to 400px) ---------- */
+/* -------------- Small Screen Tweaks -------------- */
 @media screen and (max-width: 400px) {
+  .Title,
   .title {
-    width: 90%;
     max-width: 250px;
   }
 
   .overlayContent {
-    font-size: 0.85rem;
+    font-size: var(--font-size-xs);
     padding: 1rem;
-    width: 90%;
     max-width: 280px;
   }
 
   .gameIcon {
-    width: 70vw;
     max-width: 150px;
   }
 
@@ -296,10 +303,11 @@
     height: 60px;
   }
 
+  .playButton,
   .submitButton {
     max-width: 180px;
     height: 45px;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
   }
 
   .beatingHeart {
@@ -308,16 +316,12 @@
   }
 }
 
-/* ---------- Desktop Layout - Default Styling ---------- */
-@media screen and (min-width: 1024px) {
+/* -------------- Desktop Layout -------------- */
+@media screen and (min-width: 1025px) {
   .splitContainer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .title {
-    max-width: 400px;
   }
 
   .leftPane,
@@ -330,8 +334,21 @@
     align-items: center;
   }
 
-  .gameIcon {
-    max-width: 380px;
+  .rightPane {
+    display: flex;
+  }
+
+  .Title,
+  .title {
+    max-width: 400px;
+    padding-top: 100px;
+  }
+
+  .overlayContent {
+    font-size: var(--font-size-lg);
+    padding: 2rem;
+    max-width: 500px;
+    border-radius: var(--border-radius-lg);
   }
 
   .star.small {
@@ -344,10 +361,19 @@
     height: 120px;
   }
 
+  .gameIcon {
+    max-width: 380px;
+  }
+
+  .playButton,
   .submitButton {
     max-width: 260px;
     height: 60px;
-    font-size: 1.5rem;
+    font-size: var(--font-size-xxl);
+  }
+
+  .downloadIcon {
+    max-width: 140px;
   }
 
   .beatingHeart {
@@ -355,13 +381,11 @@
     height: 90px;
   }
 
-  /* Hide left image and star on Desktop */
   .leftPane .gameIcon,
   .leftPane .starRow {
     display: none;
   }
 
-  /* Show right image and star on Desktop */
   .rightPane .desktopGameIcon,
   .rightPane .starRow {
     display: flex;

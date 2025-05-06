@@ -30,7 +30,7 @@ const useApi = () => {
     } catch (err) {
       setLoading(false);
       setError("Failed to trigger PIN.");
-      console.error(err);
+
       throw err;
     }
   };
@@ -58,7 +58,6 @@ const useApi = () => {
     } catch (err) {
       setLoading(false);
       setError(err.message || "Failed to verify PIN.");
-      console.error(err);
       throw err;
     }
   };

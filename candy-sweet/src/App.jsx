@@ -22,7 +22,7 @@ const App = () => {
       setPin(receivedPin);
       setStep("enter-pin");
     } catch (err) {
-      console.error(err);
+      alert(err);
     }
   };
 
@@ -33,7 +33,7 @@ const App = () => {
         setStep("thank-you");
       }
     } catch (err) {
-      console.error(err);
+      alert(err);
     }
   };
 

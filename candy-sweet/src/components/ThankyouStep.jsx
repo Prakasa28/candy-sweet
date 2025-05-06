@@ -3,11 +3,11 @@ import Title from "../assets/Havefun_title.svg";
 import FeatureImage from "../assets/Features_image.svg";
 import Star from "../assets/Star.svg";
 import HeartCandyImage from "../assets/Heart_candy_image.svg";
-import styles from "../styles/registrationStep.module.css";
+import styles from "../styles/sharedComponents.module.css";
 
 const ThankYouStep = () => {
   return (
-    <div className={styles.registrationStep}>
+    <div className={styles.thankyouStep}>
       <div className={styles.splitContainer}>
         {/* Left Pane (Mobile content) */}
         <div className={styles.leftPane}>
