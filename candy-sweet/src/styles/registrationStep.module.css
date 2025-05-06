@@ -10,10 +10,39 @@
   box-sizing: border-box;
 }
 
+.splitContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  justify-content: center;
+}
+
+.leftPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.rightPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
 .title {
   width: 80%;
   max-width: 300px;
   margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 .overlayContent {
@@ -21,7 +50,7 @@
   padding: 1.5rem 1rem;
   color: #fff;
   font-family: "Permanent Marker", cursive;
-  font-size: 1rem;
+  font-size: 1.2rem;
   width: 90%;
   max-width: 350px;
   background-color: rgba(255, 183, 104, 0.88);
@@ -39,6 +68,15 @@
   max-width: 220px;
   height: auto;
   margin-top: 0.75rem;
+}
+
+.desktopGameIcon {
+  display: none; /* Hide the desktop image by default */
+  width: 60vw;
+  max-width: 380px;
+  height: auto;
+  margin-top: 0.75rem;
+  margin-bottom: 50px;
 }
 
 .starRow {
@@ -158,41 +196,41 @@
   border-color: #ff6b44;
 }
 
-@media screen and (max-height: 650px) {
-  .registrationStep {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    height: auto;
-    min-height: 100vh;
+/* ---------- Responsive Layout for Mobile ---------- */
+@media screen and (max-width: 1023px) {
+  .splitContainer {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .overlayContent {
-    font-size: 0.95rem;
-    padding: 1rem;
+  .leftPane {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  .submitButton {
-    height: 48px;
-    font-size: 1.1rem;
+  .rightPane {
+    display: none;
   }
-}
 
-@media screen and (max-width: 400px) {
   .title {
-    width: 90%;
+    width: 80%;
     max-width: 280px;
   }
 
   .overlayContent {
-    padding: 1rem;
     font-size: 0.95rem;
-    width: 95%;
-    max-width: 320px;
+    padding: 1.25rem;
+    width: 90%;
+    max-width: 300px;
   }
 
   .gameIcon {
     width: 70vw;
     max-width: 180px;
+    margin-top: 1rem;
   }
 
   .star.small {
@@ -206,14 +244,126 @@
   }
 
   .submitButton {
-    width: 90%;
-    max-width: 190px;
+    max-width: 200px;
     height: 48px;
     font-size: 1.05rem;
   }
 
   .beatingHeart {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Hide right image and star in mobile */
+  .rightPane .desktopGameIcon,
+  .rightPane .starRow {
+    display: none;
+  }
+
+  /* Show left image and star in mobile */
+  .leftPane .gameIcon,
+  .leftPane .starRow {
+    display: flex;
+  }
+}
+
+/* ---------- Responsive Layout for Small Screens (up to 400px) ---------- */
+@media screen and (max-width: 400px) {
+  .title {
+    width: 90%;
+    max-width: 250px;
+  }
+
+  .overlayContent {
+    font-size: 0.85rem;
+    padding: 1rem;
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .gameIcon {
+    width: 70vw;
+    max-width: 150px;
+  }
+
+  .star.small {
+    width: 40px;
+    height: 40px;
+  }
+
+  .star.large {
     width: 60px;
     height: 60px;
+  }
+
+  .submitButton {
+    max-width: 180px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .beatingHeart {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ---------- Desktop Layout - Default Styling ---------- */
+@media screen and (min-width: 1024px) {
+  .splitContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    max-width: 400px;
+  }
+
+  .leftPane,
+  .rightPane {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gameIcon {
+    max-width: 380px;
+  }
+
+  .star.small {
+    width: 95px;
+    height: 95px;
+  }
+
+  .star.large {
+    width: 120px;
+    height: 120px;
+  }
+
+  .submitButton {
+    max-width: 260px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .beatingHeart {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Hide left image and star on Desktop */
+  .leftPane .gameIcon,
+  .leftPane .starRow {
+    display: none;
+  }
+
+  /* Show right image and star on Desktop */
+  .rightPane .desktopGameIcon,
+  .rightPane .starRow {
+    display: flex;
   }
 }
