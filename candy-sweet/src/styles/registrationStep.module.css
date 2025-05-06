@@ -1,0 +1,196 @@
+.registrationStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.title {
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 0.75rem;
+}
+
+.overlayContent {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: #fff;
+  font-family: "Permanent Marker", cursive;
+  font-size: 1rem;
+  width: 90%;
+  max-width: 350px;
+  background-color: rgba(255, 183, 104, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+  flex-direction: column;
+  position: relative;
+}
+
+.gameIcon {
+  width: 60vw;
+  max-width: 220px;
+  height: auto;
+  margin-top: 0.75rem;
+}
+
+.starRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.star.small {
+  width: 50px;
+  height: 50px;
+}
+
+.star.large {
+  width: 75px;
+  height: 75px;
+  filter: drop-shadow(0 0 12px gold);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.star {
+  filter: drop-shadow(0 0 6px gold);
+  animation: twinkle 1.5s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.submitButton {
+  width: 80%;
+  max-width: 210px;
+  height: 50px;
+  font-weight: bold;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-family: "Permanent Marker", cursive;
+  cursor: pointer;
+  background: linear-gradient(
+        180deg,
+        #fdb263 0%,
+        #ffa64e 19.72%,
+        #ff9e4e 35.1%,
+        #ff8d4c 69.72%,
+        #ff7148 100%
+      )
+      padding-box,
+    linear-gradient(180deg, #ffb768, #ff6b44) border-box;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.submitButton:hover {
+  transform: scale(1.05);
+}
+
+.inputField {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputField input {
+  width: 80%;
+  border-radius: 30px;
+  border: 3px solid #ff7148;
+  background: #fff;
+  padding: 0.75rem;
+  font-family: "Permanent Marker", cursive;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffa944;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.inputField input::placeholder {
+  color: #ffa944;
+  font-family: "Permanent Marker", cursive;
+  font-size: 15px;
+}
+
+.inputField input:focus {
+  outline: none;
+  border-color: #ff6b44;
+}
+
+@media screen and (max-height: 650px) {
+  .registrationStep {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .overlayContent {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+
+  .submitButton {
+    height: 48px;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .title {
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .overlayContent {
+    padding: 1rem;
+    font-size: 0.95rem;
+    width: 95%;
+    max-width: 320px;
+  }
+
+  .gameIcon {
+    width: 70vw;
+    max-width: 180px;
+  }
+
+  .star.small {
+    width: 45px;
+    height: 45px;
+  }
+
+  .star.large {
+    width: 65px;
+    height: 65px;
+  }
+
+  .submitButton {
+    width: 90%;
+    max-width: 190px;
+    height: 48px;
+    font-size: 1.05rem;
+  }
+}

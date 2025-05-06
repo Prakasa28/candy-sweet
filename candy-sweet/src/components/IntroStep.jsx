@@ -4,19 +4,30 @@ import Star from "../assets/Star.svg";
 import GameImage from "../assets/Game_Image.svg";
 import DownloadApple from "../assets/App_store_button.svg";
 import DownloadGoogle from "../assets/Play_store_button.svg";
-
-import "../styles/introStep.css";
+import styles from "../styles/introStep.module.css";
 
 const IntroStep = ({ onPlay }) => {
   return (
-    <div className="introStep">
-      <img src={Title} alt="Candy Sweet Title" className="Title" />
+    <div className={styles.introStep}>
+      <img src={Title} alt="Candy Sweet Title" className={styles.Title} />
 
-      <div className="overlay-content">
-        <div className="star-row">
-          <img src={Star} alt="Star" className="star small" />
-          <img src={Star} alt="Star" className="star large" />
-          <img src={Star} alt="Star" className="star small" />
+      <div className={styles.overlayContent}>
+        <div className={styles.starRow}>
+          <img
+            src={Star}
+            alt="Star"
+            className={`${styles.star} ${styles.small}`}
+          />
+          <img
+            src={Star}
+            alt="Star"
+            className={`${styles.star} ${styles.large}`}
+          />
+          <img
+            src={Star}
+            alt="Star"
+            className={`${styles.star} ${styles.small}`}
+          />
         </div>
 
         <p>
@@ -25,21 +36,23 @@ const IntroStep = ({ onPlay }) => {
           EARN TASTY REWARDS. GET READY FOR A SWEET ADVENTURE!
         </p>
 
-        <img src={GameImage} alt="Game Icon" className="game-icon" />
+        <img src={GameImage} alt="Game Icon" className={styles.gameIcon} />
       </div>
 
-      <button onClick={onPlay}>PLAY NOW</button>
+      <button className={styles.playButton} onClick={onPlay}>
+        PLAY NOW
+      </button>
 
-      <div className="download-buttons">
+      <div className={styles.downloadButtons}>
         <img
           src={DownloadApple}
           alt="Download on Apple Store"
-          className="download-icon"
+          className={styles.downloadIcon}
         />
         <img
           src={DownloadGoogle}
           alt="Download on Google Play"
-          className="download-icon"
+          className={styles.downloadIcon}
         />
       </div>
     </div>
