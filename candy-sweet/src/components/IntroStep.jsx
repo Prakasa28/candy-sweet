@@ -4,7 +4,7 @@ import Star from "../assets/Star.svg";
 import GameImage from "../assets/Game_Image.svg";
 import DownloadApple from "../assets/App_store_button.svg";
 import DownloadGoogle from "../assets/Play_store_button.svg";
-import styles from "../styles/sharedComponents.module.css";
+import styles from "../styles/SharedComponents.module.css";
 
 const IntroStep = ({ onPlay }) => {
   return (

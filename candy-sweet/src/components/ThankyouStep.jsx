@@ -3,7 +3,7 @@ import Title from "../assets/Havefun_title.svg";
 import FeatureImage from "../assets/Features_image.svg";
 import Star from "../assets/Star.svg";
 import HeartCandyImage from "../assets/Heart_candy_image.svg";
-import styles from "../styles/sharedComponents.module.css";
+import styles from "../styles/SharedComponents.module.css";
 
 const ThankYouStep = () => {
   return (

@@ -3,7 +3,7 @@ import Title from "../assets/Title.svg";
 import Star from "../assets/Star.svg";
 import LevelImage from "../assets/Level_image.svg";
 import GameImage from "../assets/Game_Image.svg";
-import styles from "../styles/sharedComponents.module.css";
+import styles from "../styles/SharedComponents.module.css";
 
 const RegistrationStep = ({ phone, setPhone, userId, setUserId, onSubmit }) => {
   const [showError, setShowError] = useState(false);
