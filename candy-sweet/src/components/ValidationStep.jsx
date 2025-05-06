@@ -1,21 +1,58 @@
 import React from "react";
-import InputField from "./InputField";
+import Title from "../assets/Title.svg";
+import Star from "../assets/Star.svg";
+import LevelImage from "../assets/Level_image.svg";
+import styles from "../styles/registrationStep.module.css"; // Reusing the same styles
 
 const ValidationStep = ({ pin, setPin, onVerify, clearError }) => {
   return (
-    <>
-      <InputField
-        label="Enter the PIN you received:"
-        placeholder="PIN"
-        maxLength={20}
-        value={pin}
-        onChange={(e) => {
-          setPin(e.target.value);
-          clearError();
-        }}
-      />
-      <button onClick={onVerify}>Verify PIN</button>
-    </>
+    <div className={styles.registrationStep}>
+      <img src={Title} alt="Candy Sweet Title" className={styles.title} />
+
+      <div className={styles.overlayContent}>
+        <div className={styles.starRow}>
+          <img
+            src={Star}
+            alt="Star"
+            className={`${styles.star} ${styles.small}`}
+          />
+          <img
+            src={Star}
+            alt="Star"
+            className={`${styles.star} ${styles.large}`}
+          />
+          <img
+            src={Star}
+            alt="Star"
+            className={`${styles.star} ${styles.small}`}
+          />
+        </div>
+
+        <img src={LevelImage} alt="Game Icon" className={styles.gameIcon} />
+
+        <p>
+          WE HAVE SENT 4 DIGIT PIN TO 641777527. ENTER IT BELOW TO CONTINUE.
+        </p>
+
+        <div className={styles.inputField}>
+          <input
+            type="text"
+            placeholder="4 - DIGIT PIN"
+            maxLength={20}
+            value={pin}
+            onChange={(e) => {
+              setPin(e.target.value);
+              clearError();
+            }}
+            className={styles.customInput}
+          />
+        </div>
+
+        <button onClick={onVerify} className={styles.submitButton}>
+          Verify PIN
+        </button>
+      </div>
+    </div>
   );
 };
 
