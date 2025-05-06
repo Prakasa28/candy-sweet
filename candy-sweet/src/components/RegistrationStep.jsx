@@ -120,7 +120,7 @@ const RegistrationStep = ({ phone, setPhone, userId, setUserId, onSubmit }) => {
             <img
               src={GameImage}
               alt="Desktop Game Icon"
-              className={styles.desktopGameIcon} // This is the new image for desktop
+              className={styles.desktopGameIcon}
             />
           </div>
         </div>
