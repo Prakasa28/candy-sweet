@@ -26,9 +26,18 @@ const Menu = () => {
         <button className={styles.closeButton} onClick={toggleMenu}>
           <img src={CloseIcon} alt="Close menu" className={styles.closeIcon} />
         </button>
-        <img src={HomeIcon} alt="Home" className={styles.menuIcon} />
-        <img src={NewsIcon} alt="News" className={styles.menuIcon} />
-        <img src={StoreIcon} alt="Store" className={styles.menuIcon} />
+        <div className={styles.menuItem}>
+          <img src={HomeIcon} alt="Home" className={styles.menuIcon} />
+          <span className={styles.menuLabel}>Home</span>
+        </div>
+        <div className={styles.menuItem}>
+          <img src={NewsIcon} alt="News" className={styles.menuIcon} />
+          <span className={styles.menuLabel}>News</span>
+        </div>
+        <div className={styles.menuItem}>
+          <img src={StoreIcon} alt="Store" className={styles.menuIcon} />
+          <span className={styles.menuLabel}>Store</span>
+        </div>
       </div>
     </>
   );
