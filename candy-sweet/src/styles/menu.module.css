@@ -1,12 +1,12 @@
-.top-menu {
+.topMenu {
   position: fixed;
   top: 1rem;
-  right: -250px;
+  right: -260px;
   display: flex;
   align-items: center;
   gap: 1.5rem;
   z-index: 1000;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   background: linear-gradient(
         180deg,
         #fdb263 0%,
@@ -17,49 +17,59 @@
       )
       padding-box,
     linear-gradient(180deg, #ffb768, #ff6b44) border-box;
-  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
+  border: 2px solid transparent;
   border-radius: 20px 0 0 20px;
-  transition: right 0.3s ease;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
+  transition: right 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.top-menu.open {
+.open {
   right: 0;
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.menu-icon {
+.menuIcon {
   width: 30px;
   height: auto;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
-.menu-icon:hover {
-  transform: scale(1.1);
+.menuIcon:hover {
+  transform: scale(1.15) rotate(2deg);
 }
 
-.hamburger-button {
+.hamburgerButton {
   position: fixed;
   top: 1rem;
   right: 1rem;
   z-index: 1100;
-  background: rgba(255, 158, 78, 0.8); /* Semi-transparent */
+  background: rgba(255, 158, 78, 0.8);
   border: none;
   padding: 0.3rem;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.3s;
 }
 
-.hamburger-icon {
-  width: 20px;
-  height: 20px;
+.hamburgerButton:hover {
+  background: rgba(255, 158, 78, 1);
+}
+
+.hamburgerIcon {
+  width: 22px;
+  height: 22px;
   opacity: 0.9;
 }
 
-.close-button {
+.closeButton {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -67,9 +77,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease;
 }
 
-.close-icon {
+.closeButton:hover {
+  transform: rotate(90deg);
+}
+
+.closeIcon {
   width: 18px;
   height: 18px;
   opacity: 0.9;
