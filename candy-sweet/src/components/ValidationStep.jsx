@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Title from "../assets/Title.svg";
 import Star from "../assets/Star.svg";
 import LevelImage from "../assets/Level_image.svg";
@@ -6,6 +7,10 @@ import GameImage from "../assets/Game_Image.svg";
 import styles from "../styles/SharedComponents.module.css";
 
 const ValidationStep = ({ pin, setPin, onVerify, clearError }) => {
+  const navigate = useNavigate();
+  const goTo = (path) => {
+    navigate(path);
+  };
   return (
     <div className={styles.validationStep}>
       <div className={styles.splitContainer}>
@@ -63,6 +68,12 @@ const ValidationStep = ({ pin, setPin, onVerify, clearError }) => {
             <button onClick={onVerify} className={styles.submitButton}>
               Verify PIN
             </button>
+            <p
+              onClick={() => goTo("/registration")}
+              style={{ cursor: "pointer" }}
+            >
+              CHANGE PHONE NUMBER
+            </p>
           </div>
         </div>
 
